@@ -1,6 +1,6 @@
 # Task Management API
 
-A RESTful API for managing tasks, built with Spring Boot and PostgreSQL.
+A REST API for managing tasks, built with Spring Boot and PostgreSQL.
 
 ## Features
 
