@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.UUID;
 
@@ -23,7 +24,7 @@ public interface TaskApi {
             @ApiResponse(responseCode = "400", description = "Invalid input data",
                     content = @Content)
     })
-    TaskResponseDto createTask(@Valid TaskRequestDto requestDto);
+    TaskResponseDto createTask(@Valid @RequestBody TaskRequestDto requestDto);
 
     @Operation(summary = "Get a task by ID")
     @ApiResponses(value = {
@@ -46,7 +47,7 @@ public interface TaskApi {
     })
     TaskResponseDto updateTask(
             @Parameter(description = "Task ID", required = true) UUID id,
-            @Valid TaskRequestDto updateDto);
+            @Valid @RequestBody TaskRequestDto updateDto);
 
     @Operation(summary = "Delete a task")
     @ApiResponses(value = {
